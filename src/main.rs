@@ -1,7 +1,9 @@
 use std::io::{stdout, Write};
 
 use rustyline::{error::ReadlineError, DefaultEditor};
-use tan::{api::eval_string, context::Context, expr::Expr};
+use tan::{api::eval_string, context::Context, expr::Expr, util::module_util::require_module};
+
+mod shell;
 
 // #todo investigate if we can leverage the similarities between repl and shell.
 
@@ -16,6 +18,15 @@ fn main() -> anyhow::Result<()> {
     println!("Tan, press CTRL-D to exit.");
 
     let mut context = Context::new();
+
+    shell::setup_lib_shell(&mut context);
+    let module = require_module("shell", &mut context);
+
+    // #todo reuse `use` code here or extract helper!
+    let bindings = module.scope.bindings.borrow().clone();
+    for (name, value) in bindings {
+        context.top_scope.insert(name, value.clone());
+    }
 
     let mut index = 0;
 
