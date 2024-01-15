@@ -11,6 +11,10 @@ pub fn shell_help(_args: &[Expr], _context: &mut Context) -> Result<Expr, Error>
     Ok(Expr::One)
 }
 
+// #todo shell_ls
+// #todo shell_cd
+// #todo shell_rm
+
 pub fn setup_lib_shell(context: &mut Context) {
     let module = require_module("shell", context);
 
