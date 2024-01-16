@@ -15,7 +15,8 @@ fn main() -> anyhow::Result<()> {
     //     println!("No previous history.");
     // }
 
-    println!("Tan, press CTRL-D to exit.");
+    // #insight no welcome needed.
+    // println!("Tan, press CTRL-D to exit.");
 
     let mut context = Context::new();
 
