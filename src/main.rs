@@ -24,7 +24,12 @@ fn main() -> anyhow::Result<()> {
     let module = require_module("shell", &mut context);
 
     // #todo reuse `use` code here or extract helper!
-    let bindings = module.scope.bindings.borrow().clone();
+    let bindings = module
+        .scope
+        .bindings
+        .read()
+        .expect("should nor be poisoned")
+        .clone();
     for (name, value) in bindings {
         context.top_scope.insert(name, value.clone());
     }
@@ -72,7 +77,7 @@ fn main() -> anyhow::Result<()> {
                 context.scope.insert(format!("$o{index}"), value.clone());
 
                 match value {
-                    Expr::One => (),
+                    Expr::Nil => (),
                     _ => println!("{value}"),
                 }
 
