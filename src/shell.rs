@@ -12,7 +12,7 @@ use tan::{context::Context, error::Error, expr::Expr, util::module_util::require
 pub fn shell_help(_args: &[Expr], _context: &mut Context) -> Result<Expr, Error> {
     println!("Tan Shell");
     println!("The help file is WIP.");
-    Ok(Expr::Nil)
+    Ok(Expr::None)
 }
 
 // #todo somehow reuse fs/list.
@@ -59,7 +59,7 @@ pub fn shell_ls(args: &[Expr], _context: &mut Context) -> Result<Expr, Error> {
         // }
     }
 
-    Ok(Expr::Nil)
+    Ok(Expr::None)
 }
 
 // #todo shell_ls

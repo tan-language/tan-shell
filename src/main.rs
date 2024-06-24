@@ -77,7 +77,7 @@ fn main() -> anyhow::Result<()> {
                 context.scope.insert(format!("$o{index}"), value.clone());
 
                 match value {
-                    Expr::Nil => (),
+                    Expr::None => (),
                     _ => println!("{value}"),
                 }
 
