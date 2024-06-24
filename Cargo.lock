@@ -844,7 +844,7 @@ dependencies = [
 
 [[package]]
 name = "tan"
-version = "0.14.0"
+version = "0.15.0"
 dependencies = [
  "chrono",
  "libloading",
@@ -860,7 +860,7 @@ dependencies = [
 
 [[package]]
 name = "tan-shell"
-version = "0.14.0"
+version = "0.15.0"
 dependencies = [
  "anyhow",
  "clap",
