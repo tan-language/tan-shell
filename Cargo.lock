@@ -714,7 +714,7 @@ dependencies = [
 
 [[package]]
 name = "tan"
-version = "0.16.0"
+version = "0.17.0"
 dependencies = [
  "rust_decimal",
  "rust_decimal_macros",
@@ -723,7 +723,7 @@ dependencies = [
 
 [[package]]
 name = "tan-shell"
-version = "0.16.0"
+version = "0.17.0"
 dependencies = [
  "anyhow",
  "clap",
